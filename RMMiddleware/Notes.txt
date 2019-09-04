@@ -4,8 +4,6 @@ Coding Tasks
 https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write?view=aspnetcore-2.2
 
 .NET Instrumentation Engineer Project
-We have a very specific project just for .NET agent engineers. For any applicant wanting to work on our .NET platform, this project is the 2019 required project.
-
 
 DONE: Instrumenting .NET applications requires implementation of a profiler written in C++ which we consider too large for an interview project. Therefore, we ask that candidates interested in working on our .NET agent instead implement either an ASP.NET IHttpModule or ASP.NET Core Middleware.
 NOTE: Used .NET Core Middleware
@@ -16,7 +14,7 @@ NOTE: Using Standard Class Library with required nuget packages to be included i
 Your project must satisfy the following requirements:
 
 DONE: Measure the total time spent processing the request.
-NOTE: TODO: Recording 6 request per page load?
+NOTE: Recording 6 request per page load in MVC Template Application.  Requests are coming from css, js files, ect, and page loads
 
 DONE: Measure the size of the response body in bytes. 
 DONE: Calculate 
@@ -51,7 +49,10 @@ NOTE: TODO: Write more in-depth tests
 TODO: Include an amazing README in your GitHub project that explains what you built, why you built it, how to deploy it up and how to use it. Include the AppVeyor or Azure DevOps build badge in your README to show status.
 TODO: Your project’s README should also outline future improvements you would like to make to the project.
 
-NOTES:
+--
+
+DISOVERY NOTES:
+
 Middleware Pipeline - Request delegates are used to build the request pipeline. The request delegates handle each HTTP request.
 
 Exception-handling delegates should be called early in the pipeline, so they can catch exceptions that occur in later stages of the pipeline.
