@@ -77,4 +77,7 @@ Order - Startup.Configure - order middleware components are invoked on requests,
 
 UseAuthentication - Authentication Middleware, which performs authentication. Authentication doesn't short-circuit unauthenticated requests. Although Authentication Middleware authenticates requests, authorization (and rejection) occurs only after MVC selects a specific Razor Page or MVC controller and action
 
+Singleton - Singleton objects are the same for every object and every request (regardless of whether an instance is provided in ConfigureServices)
+
+Singleton will be the same throughout the app regardless of session/user, if your app is using microservices architecture and each service runs in a separate process, the singleton will be the same in each process
 
