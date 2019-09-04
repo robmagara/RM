@@ -1,0 +1,79 @@
+﻿
+
+Coding Tasks
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write?view=aspnetcore-2.2
+
+.NET Instrumentation Engineer Project
+We have a very specific project just for .NET agent engineers. For any applicant wanting to work on our .NET platform, this project is the 2019 required project.
+
+
+DONE: Instrumenting .NET applications requires implementation of a profiler written in C++ which we consider too large for an interview project. Therefore, we ask that candidates interested in working on our .NET agent instead implement either an ASP.NET IHttpModule or ASP.NET Core Middleware.
+NOTE: Used .NET Core Middleware
+
+DONE: Your IHttpModule (or Middleware) should be designed so that it can be safely added to any ASP.NET (or ASP.NET Core) web application.
+NOTE: Using Standard Class Library with required nuget packages to be included in a .NET Core MVC Application
+
+Your project must satisfy the following requirements:
+
+DONE: Measure the total time spent processing the request.
+NOTE: TODO: Recording 6 request per page load?
+
+DONE: Measure the size of the response body in bytes. 
+DONE: Calculate 
+> the minimum, 
+> average, and 
+> maximum responses seen so far.
+NOTE: Reading Response Body
+https://elanderson.net/2017/02/log-requests-and-responses-in-asp-net-core/
+https://elanderson.net/tag/middleware/
+
+DONE: Add new content to HTML pages to display information gathered by your project.
+NOTE: View MVC project /test View to see stats
+
+DONE: Ensure that your IHttpModule or Middleware is thread-safe and can correctly handle multiple concurrent requests.
+NOTE: Using Singleton and Async and Await design pattern
+TODO: Research, test and demonstrate thread saftey 
+
+TODO: Handle multiple encodings and different types of pages.
+TODO: Use server resources (i.e. memory and processor) efficiently.
+
+DONE: Include a small web application that demonstrates the behavior of your IHttpModule (or Middleware.) This web application is not the focus of the project and you should feel free to use the web application template projects provided by Visual Studio.
+NOTE: See RMWeb ASP .NET Core MVC Project, Startup.cs is wired-up to use the Middleware, View test displays the stats
+
+In addition, please make sure to do the following:
+TODO: Integrate with a free CI Pipeline to compile, build, test and report in AppVeyor CI or Azure DevOps.
+NOTE: https://docs.microsoft.com/en-us/azure/devops-project/azure-devops-project-github
+
+DONE: Include unit and/or integration tests.
+DONE: Wrote functional tests to see that stats are being recorded
+NOTE: TODO: Write more in-depth tests
+
+TODO: Include an amazing README in your GitHub project that explains what you built, why you built it, how to deploy it up and how to use it. Include the AppVeyor or Azure DevOps build badge in your README to show status.
+TODO: Your project’s README should also outline future improvements you would like to make to the project.
+
+NOTES:
+Middleware Pipeline - Request delegates are used to build the request pipeline. The request delegates handle each HTTP request.
+
+Exception-handling delegates should be called early in the pipeline, so they can catch exceptions that occur in later stages of the pipeline.
+
+Middleware Components - Reusable classes and in-line anonymous methods
+
+Short-circuits - Terminal Middleware - prevents further middleware from processing requests - When a delegate doesn't pass a request to the next delegate
+
+Use - can short-circuit the pipeline (that is, if it doesn't call a next request delegate)
+
+Map - branches the request pipeline based on matches of the given request path. If the request path starts with the given path, the branch is executed
+
+Run - The first Run encountered terminates the pipeline
+
+HasStarted - a useful hint to indicate if headers have been sent or the body has been written to
+
+Warning - Changes to HttpResponse after the response has started throw an exception
+> May cause a protocol violation. For example, writing more than the stated Content-Length
+> May corrupt the body format. For example, writing an HTML footer to a CSS file
+
+Order - Startup.Configure - order middleware components are invoked on requests, reverse order for the response 
+
+UseAuthentication - Authentication Middleware, which performs authentication. Authentication doesn't short-circuit unauthenticated requests. Although Authentication Middleware authenticates requests, authorization (and rejection) occurs only after MVC selects a specific Razor Page or MVC controller and action
+
+
