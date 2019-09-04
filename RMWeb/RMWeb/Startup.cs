@@ -64,7 +64,7 @@ namespace RMWeb
                 app.UseHsts();
             }
 
-            // TODO: RM 20190903 - Determine best order
+            // TODO: RM 20190903 - Determine best order --
             app.UseStatsMiddleware();
 
             app.UseHttpsRedirection();
