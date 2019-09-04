@@ -1,0 +1,50 @@
+﻿@model StatsMiddlewareModel
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<h1>Test - Stats Middleware Output</h1>
+
+<div class="col-md-4">
+    <div class="form-group">
+        <label for="">Average Response Time</label>
+        @Html.EditorFor(model => model.StatsMiddlewareContainerDto.AverageResponseTime, new { htmlAttributes = new { @readonly = "readonly", @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        <label for="">Max Response Time</label>
+        @Html.EditorFor(model => model.StatsMiddlewareContainerDto.MaxResponseTime, new { htmlAttributes = new { @readonly = "readonly", @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        <label for="">Min Response Time</label>
+        @Html.EditorFor(model => model.StatsMiddlewareContainerDto.MinResponseTime, new { htmlAttributes = new { @readonly = "readonly", @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        <label for="">Total Responses</label>
+        @Html.EditorFor(model => model.StatsMiddlewareContainerDto.TotalResponses, new { htmlAttributes = new { @readonly = "readonly", @class = "form-control" } })
+    </div>
+</div>
+<div class="col-md-12">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">InvokeID</th>
+                <th scope="col">TotalResponseTime</th>
+                <th scope="col">ResponseBodyLength</th>
+                <th scope="col">RequestPath</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model.StatsMiddlewareContainerDto.StatsMiddlewareDtoList)
+            {
+                <tr>
+                    <td>@r.InvokeID</td>
+                    <td>@r.TotalResponseTime</td>
+                    <td>@r.ResponseBodyLength</td>
+                    <td>@r.RequestPath</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
