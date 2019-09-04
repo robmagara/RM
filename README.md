@@ -8,7 +8,9 @@ POC for using Middleware in .NET Core
 
 **Overview**
 
-This is a POC project that uses Middleware for collecting various stats within the Http Request and Response pipeline.  The stats are collected in an MVC project and displayed to the user within the Tests view.    
+This is a POC project that uses Middleware for collecting various stats within the Http Request and Response pipeline.  The stats are collected in an MVC project and displayed to the user within the Tests view.
+
+This project was created as a POC to learn and to show how to integrate a Middlware Agent for recording stats on Http Request and Response information.
 
 **Solution Layout**
 
@@ -54,3 +56,15 @@ Code Example(s)
 	}
 	
 ```
+
+Deployment:
+
+* Deploying with Azure DevOps - Deatils TBD
+
+TO-DO:
+
+* See RMMiddleware\Notes.txt for a list of remaining items to code
+
+
+
+

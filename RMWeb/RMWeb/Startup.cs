@@ -45,7 +45,7 @@ namespace RMWeb
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            // TODO: RM 20190903
+            // TODO: RM 20190903 - 
             services.AddSingleton<StatsMiddlewareContainerDTO, StatsMiddlewareContainerDTO>();
         }
 
