@@ -8,7 +8,7 @@ POC for using Middleware in .NET Core
 
 **Overview**
 
-This is a POC project that uses Middleware for collecting various stats within the Http Request and Response pipeline.  The stats are collected in an MVC project and displayed to the user within the Tests view.
+This is a POC project that uses Middleware for collecting various stats within the Http Request and Response pipeline.  The stats are collected in an MVC project and displayed to the user within the Test Views.
 
 This project was created as a POC to learn and to show how to integrate a Middlware Agent for recording stats on Http Request and Response information.
 
@@ -26,12 +26,12 @@ Get Started:
 * Open RMWeb\RMWeb.sln
 * Build Solution and ensure all nuget packages are installed/restored
 * Run RMWeb project in IIS Express or Docker Container
-* Browse to (localurl)/test or click on the Main Menu line Stats to review the Stats Middleware Output View
-* Browse to (localurl)/home and (localurl)/test2 or use the Main Menu links Home and Record to collect additional stats
-* NOTE: Stats Record inlcude: Average Response Time, Max Response Time, Min Response Time, Total Responses, Response Body Length, and Request Path
+* Browse to (localurl)/test or click on the Main Menu link Stats to review the Stats Middleware Output view
+* Browse to (localurl)/home and (localurl)/test2 or use the Main Menu links Home and Record to collect additional Stats during runtime
+* NOTE: Stats Recorded inlcude: Average Response Time, Max Response Time, Min Response Time, Total Responses, Response Body Length, and Request Path
 * NOTE: Read RMMiddleware\Notes.txt for more information about this project and getting started learning about Middleware in .NET Core
 
-How to Integrate:
+How to Integrate into an existing ASP .NET Core MVC Project:
 
 * RMMiddleware is integrated into the MVC Request Pipeline within Startup.cs
 * Include the RMMiddleware project into your MVC Solution and add a reference to the RMMiddlware project.  You may use RMWeb project as an example.
@@ -63,8 +63,12 @@ Deployment:
 
 TO-DO:
 
+* Add Logging
+* Retreive data from Log(s) and display to UI
+* Save Stats Results to a database? - TBD
+* Add exception handling and custom exceptions
+* Determine if DTO as a Singleton is best practice
+* Cover more code with Unit/Functional Tests
+* Add more stats and security checks
 * See RMMiddleware\Notes.txt for a list of remaining items to code
-
-
-
 

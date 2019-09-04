@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMWeb", "RMWeb\RMWeb.csproj", "{EFDFB02C-67FF-4778-93AB-969337D63547}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RMWeb", "RMWeb\RMWeb.csproj", "{EFDFB02C-67FF-4778-93AB-969337D63547}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMMiddleware", "..\RMMiddleware\RMMiddleware.csproj", "{08D939A2-4468-4AF1-87F8-E6C1A6389C77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RMMiddleware", "..\RMMiddleware\RMMiddleware.csproj", "{08D939A2-4468-4AF1-87F8-E6C1A6389C77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMMiddlewareTests", "..\RMMiddlewareTests\RMMiddlewareTests.csproj", "{6E824718-6AF9-46AD-AA8E-C179E10026B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RMMiddlewareTests", "..\RMMiddlewareTests\RMMiddlewareTests.csproj", "{6E824718-6AF9-46AD-AA8E-C179E10026B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F65DA13A-7E50-4D59-8F3C-359E36BE40AF}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
