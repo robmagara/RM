@@ -14,5 +14,7 @@ namespace RMWeb.Domain
         public long ResponseBodyLength { get; set; }
 
         public string RequestPath { get; set; }
+
+        public DateTime DateCreated { get; set; }
     }
 }

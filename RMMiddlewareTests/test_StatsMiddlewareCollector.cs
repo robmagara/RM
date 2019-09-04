@@ -24,10 +24,7 @@ namespace RMMiddlewareTests
             var defaultHttpContext = new DefaultHttpContext();
 
             _statsCollector = new StatsMiddlewareCollector(
-                next: async (httpContext) =>
-                {
-
-                });
+                next: async (httpContext) => { });
 
             await _statsCollector.Invoke(defaultHttpContext, _statsContainer);
 
@@ -40,10 +37,7 @@ namespace RMMiddlewareTests
             var defaultHttpContext = new DefaultHttpContext();
 
             _statsCollector = new StatsMiddlewareCollector(
-                next: async (httpContext) =>
-                {
-
-                });
+                next: async (httpContext) => { });
 
             await _statsCollector.Invoke(defaultHttpContext, _statsContainer);
 

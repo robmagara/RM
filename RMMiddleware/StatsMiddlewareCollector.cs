@@ -21,12 +21,6 @@ namespace RMMiddleware
 
         public async Task Invoke(HttpContext context, StatsMiddlewareContainerDTO statsContainer)
         {
-            if (statsContainer == null)
-                statsContainer = new StatsMiddlewareContainerDTO();
-
-            if (statsContainer.StatsMiddlewareDtoList == null)
-                statsContainer.StatsMiddlewareDtoList = new List<StatsMiddlewareDTO>();
-
             using (var buffer = new MemoryStream())
             {
                 var request = context.Request;
@@ -42,19 +36,29 @@ namespace RMMiddleware
 
                 stopwatch.Stop();
 
-                var statsMiddlewareDto = new StatsMiddlewareDTO
-                {
-                    InvokeID = Guid.NewGuid().ToString(),
-                    ResponseBodyLength = response.ContentLength ?? buffer.Length,
-                    TotalResponseTime = stopwatch.ElapsedMilliseconds,
-                    RequestPath = context.Request.Path,
-                };
+                if (statsContainer == null)
+                    statsContainer = new StatsMiddlewareContainerDTO();
 
-                statsContainer.StatsMiddlewareDtoList.Add(statsMiddlewareDto);
-                statsContainer.TotalResponses += 1;
-                statsContainer.AverageResponseTime = statsContainer.StatsMiddlewareDtoList.Average(x => x.TotalResponseTime);
-                statsContainer.MaxResponseTime = statsContainer.StatsMiddlewareDtoList.Max(x => x.TotalResponseTime);
-                statsContainer.MinResponseTime = statsContainer.StatsMiddlewareDtoList.Min(x => x.TotalResponseTime);
+                if (statsContainer.StatsMiddlewareDtoList == null)
+                    statsContainer.StatsMiddlewareDtoList = new List<StatsMiddlewareDTO>();
+
+                lock (statsContainer)
+                {
+                    var statsMiddlewareDto = new StatsMiddlewareDTO
+                    {
+                        InvokeID = Guid.NewGuid().ToString(),
+                        ResponseBodyLength = response.ContentLength ?? buffer.Length,
+                        TotalResponseTime = stopwatch.ElapsedMilliseconds,
+                        RequestPath = context.Request.Path,
+                        DateCreated = DateTime.Now,
+                    };
+
+                    statsContainer.StatsMiddlewareDtoList.Add(statsMiddlewareDto);
+                    statsContainer.TotalResponses += 1;
+                    statsContainer.AverageResponseTime = statsContainer.StatsMiddlewareDtoList.Average(x => x.TotalResponseTime);
+                    statsContainer.MaxResponseTime = statsContainer.StatsMiddlewareDtoList.Max(x => x.TotalResponseTime);
+                    statsContainer.MinResponseTime = statsContainer.StatsMiddlewareDtoList.Min(x => x.TotalResponseTime);
+                }
 
                 buffer.Position = 0;
 

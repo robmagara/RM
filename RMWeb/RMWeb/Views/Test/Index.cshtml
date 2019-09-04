@@ -30,6 +30,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th scope="col">DateCreated</th>
                     <th scope="col">InvokeID</th>
                     <th scope="col">TotalResponseTime</th>
                     <th scope="col">ResponseBodyLength</th>
@@ -37,9 +38,10 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var r in Model.StatsMiddlewareContainerDto.StatsMiddlewareDtoList)
+                @foreach (var r in Model.StatsMiddlewareContainerDto.StatsMiddlewareDtoList.OrderByDescending(x => x.DateCreated))
                 {
                     <tr>
+                        <td>@r.DateCreated.ToString("yyyy/MM/dd HH:mm:ss")</td>
                         <td>@r.InvokeID</td>
                         <td>@r.TotalResponseTime</td>
                         <td>@r.ResponseBodyLength</td>

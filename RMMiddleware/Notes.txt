@@ -30,7 +30,11 @@ NOTE: View MVC project /test View to see stats
 
 DONE: Ensure that your IHttpModule or Middleware is thread-safe and can correctly handle multiple concurrent requests.
 NOTE: Using Singleton and Async and Await design pattern
+NOTE: public async Task Invoke(HttpContext context, StatsMiddlewareContainerDTO statsContainer)
+statsContainer is passed and used as a reference, implement lock technique to ensure thread saftey 
 TODO: Research, test and demonstrate thread saftey 
+NOTE: Thread Saftey in .NET Core
+https://www.poppastring.com/blog/avoiding-threading-issues-in-aspnet-core
 
 TODO: Handle multiple encodings and different types of pages.
 TODO: Use server resources (i.e. memory and processor) efficiently.
