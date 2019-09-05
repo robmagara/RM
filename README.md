@@ -1,4 +1,3 @@
-# RM
  
 RMMiddleware Agent - Http Stats Collector
 ===
@@ -20,6 +19,11 @@ Files and Descriptions:
 * RMWeb\RMWeb.sln - ASP .NET Core MVC Application for Runtime Testing RMMiddleware Agent
 * RMMiddleware\RMMiddleware.csproj - .NET Standard Class Library - Middleware Agent that enables the collection of Http Requst and Response Data
 * RMMiddleware\RMMiddlewareTests.csproj - XUnit Unit Test for testing RMMiddleware Class Library
+
+Dependencies:
+* .NET Core SDK 2.2.401
+* SDK Downloads: https://dotnet.microsoft.com/download/dotnet-core/2.2
+* Nuget Packages for RMMiddleware 
 
 Get Started:
 
