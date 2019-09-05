@@ -21,9 +21,31 @@ Files and Descriptions:
 * RMMiddleware\RMMiddlewareTests.csproj - XUnit Unit Test for testing RMMiddleware Class Library
 
 Dependencies:
+
 * .NET Core SDK 2.2.401 x64
 * SDK Downloads: https://dotnet.microsoft.com/download/dotnet-core/2.2
-* Nuget Packages for RMMiddleware 
+* Nuget Packages:  
+
+RMMiddleware:
+
+* NETStandard.Library
+* Microsoft.AspNetCore.Http
+
+RMMiddlewareTest:
+
+* Microsoft.AspNetCore
+* Microsoft.NETCore.App
+* Microsoft.NET.Test.Sdk
+* xunit
+* xunit.runner.visualstudio
+
+RMWeb:
+
+* Microsoft.AspNetCore.App
+* Microsoft.AspNetCore.Razor.Design
+* Microsoft.NETCore.App
+* Microsoft.VisualStudio.Azure.Containers.Tools.Targets
+* Microsoft.VisualStudio.Web.CodeGeneration.Design
 
 Get Started:
 
