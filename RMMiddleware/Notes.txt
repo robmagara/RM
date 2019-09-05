@@ -14,44 +14,48 @@ NOTE: Using Standard Class Library with required nuget packages to be included i
 Your project must satisfy the following requirements:
 
 DONE: Measure the total time spent processing the request.
-NOTE: Recording 6 request per page load in MVC Template Application.  Requests are coming from css, js files, ect, and page loads
+NOTE: Browse to the Test View in RMWeb to see the results
 
 DONE: Measure the size of the response body in bytes. 
 DONE: Calculate 
 > the minimum, 
 > average, and 
 > maximum responses seen so far.
-NOTE: Reading Response Body
+
+NOTE: Reading Response Body Documentation
 https://elanderson.net/2017/02/log-requests-and-responses-in-asp-net-core/
 https://elanderson.net/tag/middleware/
 
 DONE: Add new content to HTML pages to display information gathered by your project.
-NOTE: View MVC project /test View to see stats
+NOTE: Run RMWeb Project and browse to [url]/test to see stats displayed to the user
 
 DONE: Ensure that your IHttpModule or Middleware is thread-safe and can correctly handle multiple concurrent requests.
+TODO: Research, test and demonstrate thread saftey 
 NOTE: Using Singleton and Async and Await design pattern
 NOTE: public async Task Invoke(HttpContext context, StatsMiddlewareContainerDTO statsContainer)
 statsContainer is passed and used as a reference, implement lock technique to ensure thread saftey 
-TODO: Research, test and demonstrate thread saftey 
 NOTE: Thread Saftey in .NET Core
 https://www.poppastring.com/blog/avoiding-threading-issues-in-aspnet-core
 
 TODO: Handle multiple encodings and different types of pages.
 TODO: Use server resources (i.e. memory and processor) efficiently.
+NOTE: Use performance tools on Azure
 
 DONE: Include a small web application that demonstrates the behavior of your IHttpModule (or Middleware.) This web application is not the focus of the project and you should feel free to use the web application template projects provided by Visual Studio.
-NOTE: See RMWeb ASP .NET Core MVC Project, Startup.cs is wired-up to use the Middleware, View test displays the stats
+NOTE: See RMWeb ASP .NET Core MVC Project, Startup.cs is wired-up to use the Middleware, View /test displays the stats. 
+NOTE: Default MVC Template with Twitter Bootstrap was used, no customization was made
 
 In addition, please make sure to do the following:
 TODO: Integrate with a free CI Pipeline to compile, build, test and report in AppVeyor CI or Azure DevOps.
 NOTE: https://docs.microsoft.com/en-us/azure/devops-project/azure-devops-project-github
+NOTE: Docker for Windows was giving issues locally (on two different machines) and it's required for setting up CI
 
 DONE: Include unit and/or integration tests.
 DONE: Wrote functional tests to see that stats are being recorded
-NOTE: TODO: Write more in-depth tests
+TODO: Write more in-depth tests and cover more code with tests
 
-TODO: Include an amazing README in your GitHub project that explains what you built, why you built it, how to deploy it up and how to use it. Include the AppVeyor or Azure DevOps build badge in your README to show status.
-TODO: Your project’s README should also outline future improvements you would like to make to the project.
+DONE: Include an amazing README in your GitHub project that explains what you built, why you built it, how to deploy it up and how to use it. Include the AppVeyor or Azure DevOps build badge in your README to show status.
+DONE: Your project’s README should also outline future improvements you would like to make to the project.
 
 --
 

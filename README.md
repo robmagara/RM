@@ -7,7 +7,7 @@ POC for using Middleware in .NET Core
 
 **Overview**
 
-This is a POC project that uses Middleware for collecting various stats within the Http Request and Response pipeline.  The stats are collected in an MVC project and displayed to the user within the Test Views.
+This is a POC project that uses Middleware for collecting various stats within the Http Request and Response pipeline.  The stats are collected in an MVC project and displayed to the user within the Test View.
 
 This project was created as a POC to learn and to show how to integrate a Middlware Agent for recording stats on Http Request and Response information.
 
@@ -63,16 +63,19 @@ Code Example(s)
 
 Deployment:
 
-* Deploying with Azure DevOps - Deatils TBD
+* Publish RMWeb to Azure DevOps witin Visual Studio Build > Publish RMWeb 
 
 TO-DO:
 
-* Add Logging
-* Retreive data from Log(s) and display to UI
-* Save Stats Results to a database? - TBD
-* Add exception handling and custom exceptions
-* Determine if DTO as a Singleton is best practice
-* Cover more code with Unit/Functional Tests
 * Add more stats and security checks
-* See RMMiddleware\Notes.txt for a list of remaining items to code
+* Setup CI that is triggered by updates to GitHub Master branch
+* Add Logging at the method level
+* Add exception handling and custom exceptions
+* Determine if using a DTO as a Singleton that is injected as a reference into the Invoke method is best practice.  Many examples use Logging or append to the Response object.
+* Cover more code with Unit/Functional Tests
+* TBD - Retreive data from Log(s) and display to UI?
+* TBD - Save Stats Results to a database?
 
+Bugs:
+
+* Docker for Windows not working locally and therefor cannot setup CI within Azure
