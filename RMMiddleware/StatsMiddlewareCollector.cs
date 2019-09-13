@@ -26,6 +26,7 @@ namespace RMMiddleware
                 var request = context.Request;
                 var response = context.Response;
 
+                // NOTE: RM 20190903 - Make a copy of the orginal response body, used later to copy to the end
                 var bodyStream = response.Body;
                 response.Body = buffer;
 

@@ -91,87 +91,11 @@ Singleton will be the same throughout the app regardless of session/user, if you
 
 --
 
-Garbage Collection - cleans unused managed objects, reclaims the memory, doesn't clean unmanged objects outside CLR - Common Language Runtime
+Azure Portal
+https://portal.azure.com
 
-System Memory Pool
-
-var obj = new object(); - reference created in pool, when declared within a function the memory for obj is released for the garbage collector to pickup and return to the memory pool
-
-GC - your program doesn't have to initiate garbage collection but it can
-- balances between performance and app memory usage
-- objects are not reclaimed right away
-
-Generation Buckets - define how long the object needs to stay in memory
-
-Gen 0 - GC comes around and removes unused objects and moves used objects to Gen 1
-Gen 1 - GC comes around and removes unused objects and moves used objects to Gen 2
-Gen 3 - GC comes around and removes unused objects and moves used objects to Gen 3
-
-CLR Profiler - allows view into memory
-
-Gen 0 - you want the most objects here so they are used and reclaimed
-
-GC.Collect(); - forces an immediate GC of all generations 
-
-obj = null; - abandoned on the heap
-
-Finalize method - 
-
-Registers Window - Memory Pointer
-
-Memory Window - Register in Memory
-
-Stack & Heap
-
-new Object - puts reference object on the heap
-
-int i; - value objects on the stack 
-
---
-
-Closures - returns a function with access to variable within the funciton 
-
-static void Main()
-{
-	Action action = getMeAction();
-	
-	action();
-	action();
-	action();
-}
-
-static Action getMeAction()
-{
-	int i = 0;
-	return () => i++; // i is captured within lambda method
-}
-
---
-
-Delegates - compile turns delegate into a class.  Need the Target object to invoke the Method on
+Middleware site
+https://rmwebmiddlewareagenttest1.azurewebsites.net/
 
 
-delegate void myDelegate();
-
-class Test
-{
-	static void Main()
-	{
-		var myDel = new MyDelegate(foo);
-		
-		myDel(); // compiler is invoking the delegate method when it sees a (); myDel reference the delegate object which points to a method
-	}
-	
-	static void foo()
-	{
-		Console.WriteLine("FOO");
-	}
-	
-}
-
---
-
-method - address in ram - jump to that location and execute 
-
-??? yield keyword  
 
