@@ -1,3 +1,4 @@
+# RM
  
 RMMiddleware Agent - Http Stats Collector
 ===
@@ -7,7 +8,7 @@ POC for using Middleware in .NET Core
 
 **Overview**
 
-This is a POC project that uses Middleware for collecting various stats within the Http Request and Response pipeline.  The stats are collected in an MVC project and displayed to the user within the Test View.
+This is a POC project that uses Middleware for collecting various stats within the Http Request and Response pipeline.  The stats are collected in an MVC project and displayed to the user within the Test Views.
 
 This project was created as a POC to learn and to show how to integrate a Middlware Agent for recording stats on Http Request and Response information.
 
@@ -19,14 +20,6 @@ Files and Descriptions:
 * RMWeb\RMWeb.sln - ASP .NET Core MVC Application for Runtime Testing RMMiddleware Agent
 * RMMiddleware\RMMiddleware.csproj - .NET Standard Class Library - Middleware Agent that enables the collection of Http Requst and Response Data
 * RMMiddleware\RMMiddlewareTests.csproj - XUnit Unit Test for testing RMMiddleware Class Library
-
-Dependencies:
-
-* .NET Core SDK 2.2.401 x64
-* SDK Downloads: https://dotnet.microsoft.com/download/dotnet-core/2.2
-* RMMiddleware Nuget Packages:  NETStandard.Library, Microsoft.AspNetCore.Http
-* RMMiddlewareTest Nuget Packages: Microsoft.AspNetCore, Microsoft.NETCore.App, Microsoft.NET.Test.Sdk, xunit, xunit.runner.visualstudio
-* RMWeb Nuget Packages: Microsoft.AspNetCore.App, Microsoft.AspNetCore.Razor.Design, Microsoft.NETCore.App, Microsoft.VisualStudio.Azure.Containers.Tools.Targets,  Microsoft.VisualStudio.Web.CodeGeneration.Design 
 
 Get Started:
 
@@ -66,19 +59,16 @@ Code Example(s)
 
 Deployment:
 
-* Publish RMWeb to Azure DevOps witin Visual Studio Build > Publish RMWeb 
+* Deploying with Azure DevOps - Deatils TBD
 
 TO-DO:
 
-* Add more stats and security checks
-* Setup CI that is triggered by updates to GitHub Master branch
-* Add Logging at the method level
+* Add Logging
+* Retreive data from Log(s) and display to UI
+* Save Stats Results to a database? - TBD
 * Add exception handling and custom exceptions
-* Determine if using a DTO as a Singleton that is injected as a reference into the Invoke method is best practice.  Many examples use Logging or append to the Response object.
+* Determine if DTO as a Singleton is best practice
 * Cover more code with Unit/Functional Tests
-* TBD - Retreive data from Log(s) and display to UI?
-* TBD - Save Stats Results to a database?
+* Add more stats and security checks
+* See RMMiddleware\Notes.txt for a list of remaining items to code
 
-Bugs:
-
-* Docker for Windows not working locally and therefor cannot setup CI within Azure
